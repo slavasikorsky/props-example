@@ -1,23 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
+import UserCard from './UserCard';
+import Header from './Header';
 
 function App() {
+  const users = [
+    {
+      id: 1,
+      firstName: 'Alex',
+      lastName: 'Parker',
+      position: 'FE'
+    },
+    {
+      id: 2,
+      firstName: 'Anton',
+      //lastName: 'Anton',
+      position: 'BE'
+    },
+    {
+      id: 3,
+      firstName: 'Max',
+      lastName: 'Maks',
+      position: 'QA'
+    },
+  ];
+
+  const content = {
+    //title: "Lorem",
+    description: "Text description",
+  }
+  const menu = [
+    {
+      id: 0,
+      link: "/cat",
+      title: "Category"
+    },
+    {
+      id: 1,
+      link: "/blog",
+      title: "Blog"
+    }
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header menu={menu} content={content} />
+      <UserCard user={users[0]} editUser={() => console.log('edit')} deleteUser={() => console.log('delete')} />
+      <UserCard user={users[1]} editUser={() => console.log('edit')} deleteUser={() => console.log('delete')} />
+      <UserCard user={users[2]} deleteUser={() => console.log('delete')} />
     </div>
   );
 }
